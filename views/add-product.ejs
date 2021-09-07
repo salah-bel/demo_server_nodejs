@@ -1,0 +1,27 @@
+<%- include('partials/head') %>
+
+    <body>
+        <%- include('partials/header') %>
+
+            <div class="container">
+                <h1>Ajouter un produit!</h1>
+                <form action="/admin/add-product" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <div class="container m-auto">
+                            <label for="">Titre de l'article</label>
+                            <input class="form-control mb-2 w-25" type="text" name="title">
+                            <label for="">Prix de l'article</label>
+                            <input class="form-control mb-2 w-25" type="text" name="price">
+                            <label for="">ImgURL</label>
+                            <input class="form-control mb-2 w-25" type="file" name="image">
+                            <label for="">Description du produit</label>
+                            <textarea class="form-control mb-2 w-25" type="text" name="desc"></textarea>
+                            <button class="btn btn-success mt-2" type="submit">Send</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <%- include ("partials/footer") %>
+    </body>
+
+    </html>

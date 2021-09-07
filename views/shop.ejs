@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/bar-nav.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <title>Shop:</title>
+</head>
+
+<body>
+    <nav class="topnav">
+        <a class="active" href="/">Home</a>
+        <a href="#news">News</a>
+        <a href="/admin/add-product">Add product</a>
+        <a href="#about">About</a>
+    </nav>
+    <div class="container">
+        <div class="alert alert-success mt-5" role="alert">
+            <h4 class="alert-heading">Well done!</h4>
+            <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+            <hr>
+            <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+        </div>
+        <ul class="d-flex flex-row justify-content-around flex-wrap">
+            <% if(products.length> 0){ %>
+                <% for(let product of products){ %>
+                    <div class="card col-3" style="width: 18rem;">
+                        <span class="card-img-top" src="<%= product.imgUrl %>" /></span>
+                        <div class="card-body">
+                            <h3 class="card-title">
+                                <%= product.title %>
+                            </h3>
+                            <p class=" font-weight-light">
+                                Prix :
+                                <%= product.price %> Euro
+                                    <%= product.id %> Euro
+                            </p>
+                            <p>Description :
+                                <%= product.desc %>
+                            </p>
+                            <form action="" method="POST">
+                            </form>
+                            <a href="/product/<%= product.id %>" class="btn btn-primary">Details</a>
+
+                            <form action="/admin/delete-product" method="post">
+                                <button type="submit" class="btn btn-danger">X</button>
+                            </form>
+
+                            <a href="#" class="btn btn-warning">Upd</a>
+                        </div>
+                    </div>
+
+                    <%} %>
+                        <% } else{ %>
+                            <h1>Sorry No Stock</h1>
+                            <% } %>
+        </ul>
+
+        </h1>
+    </div>
+</body>
+
+</html>
